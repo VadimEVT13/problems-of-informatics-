@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab1
+namespace Methods
 {
-    class Method3
+    public class Method3
     {
         string str1;
         string str2;

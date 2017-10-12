@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Methods
 {
-    class Method1
+    public class Method1
     {
         private string str1;
         private string str2;
@@ -39,7 +39,7 @@ namespace Methods
                 }
             }
 
-            return 2.0 * m / (a + b);
+            return Math.Round(2.0 * m / (a + b), 2);
         }
     }
 }

@@ -7,3 +7,12 @@ C:\Users\Vadim\Documents\Visual Studio 2015\Projects\Kurus\Lab1\Lab1\obj\Debug\L
 C:\Users\Vadim\Documents\Visual Studio 2015\Projects\Kurus\Lab1\Lab1\obj\Debug\Lab1.csproj.GenerateResource.Cache
 C:\Users\Vadim\Documents\Visual Studio 2015\Projects\Kurus\Lab1\Lab1\obj\Debug\Lab1.exe
 C:\Users\Vadim\Documents\Visual Studio 2015\Projects\Kurus\Lab1\Lab1\obj\Debug\Lab1.pdb
+C:\Users\Vadim\Documents\problems-of-informatics-\Lab1\bin\Debug\Lab1.exe.config
+C:\Users\Vadim\Documents\problems-of-informatics-\Lab1\obj\Debug\Lab1.exe
+C:\Users\Vadim\Documents\problems-of-informatics-\Lab1\obj\Debug\Lab1.pdb
+C:\Users\Vadim\Documents\problems-of-informatics-\Lab1\bin\Debug\Lab1.exe
+C:\Users\Vadim\Documents\problems-of-informatics-\Lab1\bin\Debug\Lab1.pdb
+C:\Users\Vadim\Documents\problems-of-informatics-\Lab1\obj\Debug\Lab1.csprojResolveAssemblyReference.cache
+C:\Users\Vadim\Documents\problems-of-informatics-\Lab1\obj\Debug\Lab1.Form1.resources
+C:\Users\Vadim\Documents\problems-of-informatics-\Lab1\obj\Debug\Lab1.Properties.Resources.resources
+C:\Users\Vadim\Documents\problems-of-informatics-\Lab1\obj\Debug\Lab1.csproj.GenerateResource.Cache
