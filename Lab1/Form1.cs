@@ -22,7 +22,7 @@ namespace Lab1
         private void button1_Click(object sender, EventArgs e)
         {
             Method1 m = new Method1(textBox1.Text, textBox2.Text);
-            textBox3.Text = "Формула: s = 2 * m / ( a + b )\nРезультат s = " + m.Func().ToString();
+            textBox3.Text = "Формула: s = 2 * m / ( a + b )" + Environment.NewLine + "Результат s = " + m.Func().ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)

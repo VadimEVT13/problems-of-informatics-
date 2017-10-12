@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Methods
 {
-    class Method2
+    public class Method2
     {
         string str1;
         string str2;
