@@ -7,3 +7,12 @@ C:\Users\Vadim\Documents\problems-of-informatics-\UnitTest\bin\Debug\ru\Microsof
 C:\Users\Vadim\Documents\problems-of-informatics-\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
 C:\Users\Vadim\Documents\problems-of-informatics-\UnitTest\obj\Debug\UnitTest.dll
 C:\Users\Vadim\Documents\problems-of-informatics-\UnitTest\obj\Debug\UnitTest.pdb
+C:\Users\Vadim\Desktop\problems-of-informatics--dev\UnitTest\bin\Debug\UnitTest.dll
+C:\Users\Vadim\Desktop\problems-of-informatics--dev\UnitTest\bin\Debug\UnitTest.pdb
+C:\Users\Vadim\Desktop\problems-of-informatics--dev\UnitTest\bin\Debug\Lab1.exe
+C:\Users\Vadim\Desktop\problems-of-informatics--dev\UnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Vadim\Desktop\problems-of-informatics--dev\UnitTest\bin\Debug\Lab1.pdb
+C:\Users\Vadim\Desktop\problems-of-informatics--dev\UnitTest\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\Vadim\Desktop\problems-of-informatics--dev\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Vadim\Desktop\problems-of-informatics--dev\UnitTest\obj\Debug\UnitTest.dll
+C:\Users\Vadim\Desktop\problems-of-informatics--dev\UnitTest\obj\Debug\UnitTest.pdb
