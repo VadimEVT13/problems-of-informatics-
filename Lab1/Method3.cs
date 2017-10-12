@@ -74,8 +74,44 @@ namespace Methods
         {
             double[][] tab = table();
 
-            double rez = tab[str2.Count() - 1][str1.Count() - 1];
-            return rez;
+            double rez = 0;
+
+            int i = tab.Count() - 1;
+            int j = tab[0].Count() - 1;
+            while (i != 0 & j != 0)
+            {
+                if (tab[i][j - 1] < tab[i - 1][j - 1])
+                {
+                    if (tab[i][j - 1] < tab[i - 1][j])
+                    {
+                        rez += 0.5;
+                        j--;
+                    }
+                    else
+                    {
+                        rez += 1;
+                        i--;
+                    }
+                }
+                else
+                {
+                    if (tab[i - 1][j] < tab[i - 1][j - 1])
+                    {
+                        rez += 1;
+                        i--;
+                    }
+                    else
+                    {
+                        i--;
+                        j--;
+                    }
+                }
+            }
+
+            if (tab.Count() >= tab[0].Count())
+                return rez / tab.Count();
+            else
+                return rez / tab[0].Count();
         }
     }
 }
