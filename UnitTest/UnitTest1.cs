@@ -48,7 +48,7 @@ namespace UnitTest
             double rez = m.Func();
 
             // сравнение
-            Assert.AreEqual(1, rez);
+            Assert.AreEqual(0.045, Math.Round(rez, 3));
         }
     }
 }
