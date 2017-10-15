@@ -20,6 +20,7 @@ namespace Sravnenie
             InitializeComponent();
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             Existing_Method ex_m = new Existing_Method();
@@ -35,6 +36,7 @@ namespace Sravnenie
                 string[] mass = System.IO.File.ReadAllLines("data.txt");
                 System.IO.File.WriteAllText("ex_m.txt", "");
 
+                // Существующий тест
                 t.Start();
                 foreach (string s in mass)
                 {
@@ -44,16 +46,17 @@ namespace Sravnenie
                 t.Stop();
                 System.IO.File.AppendAllText("ex_m.txt", t.Elapsed.ToString());
 
-                
+
                 System.IO.File.WriteAllText("m1.txt", "");
 
+                // Метод 1
                 t = new Stopwatch();
                 t.Start();
                 foreach (string s in mass)
                 {
                     string[] str = s.Split(' ');
                     m1 = new Method1(str[0], str[1]);
-                    System.IO.File.AppendAllText("m1.txt", m1.Func().ToString() + Environment.NewLine);
+                    System.IO.File.AppendAllText("m1.txt", (m1.Func() * 100).ToString() + Environment.NewLine);
                 }
                 t.Stop();
                 System.IO.File.AppendAllText("m1.txt", t.Elapsed.ToString());
@@ -61,6 +64,7 @@ namespace Sravnenie
 
                 System.IO.File.WriteAllText("m2.txt", "");
 
+                // Метод 2
                 t = new Stopwatch();
                 t.Start();
                 foreach (string s in mass)
@@ -74,7 +78,8 @@ namespace Sravnenie
                 }
                 t.Stop();
                 System.IO.File.AppendAllText("m2.txt", t.Elapsed.ToString());
-                
+
+                // Метод 3
                 System.IO.File.WriteAllText("m3.txt", "");
 
                 t = new Stopwatch();
@@ -83,11 +88,11 @@ namespace Sravnenie
                 {
                     string[] str = s.Split(' ');
                     m3 = new Method3(str[0], str[1]);
-                    System.IO.File.AppendAllText("m3.txt", m3.Func().ToString() + Environment.NewLine);
+                    System.IO.File.AppendAllText("m3.txt", (100 - m3.Func() * 100).ToString() + Environment.NewLine);
                 }
                 t.Stop();
                 System.IO.File.AppendAllText("m3.txt", t.Elapsed.ToString());
-                
+
                 MessageBox.Show("Выполнено");
             }
         }

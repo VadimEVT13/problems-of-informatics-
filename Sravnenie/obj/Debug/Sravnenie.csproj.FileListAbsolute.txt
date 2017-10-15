@@ -9,3 +9,14 @@ C:\Users\Vadim\Desktop\problems-of-informatics--master\Sravnenie\obj\Debug\Sravn
 C:\Users\Vadim\Desktop\problems-of-informatics--master\Sravnenie\obj\Debug\Sravnenie.csproj.GenerateResource.Cache
 C:\Users\Vadim\Desktop\problems-of-informatics--master\Sravnenie\obj\Debug\Sravnenie.exe
 C:\Users\Vadim\Desktop\problems-of-informatics--master\Sravnenie\obj\Debug\Sravnenie.pdb
+C:\Users\Vadim\Desktop\Новая папка (2)\Sravnenie\bin\Debug\Sravnenie.exe.config
+C:\Users\Vadim\Desktop\Новая папка (2)\Sravnenie\obj\Debug\Sravnenie.exe
+C:\Users\Vadim\Desktop\Новая папка (2)\Sravnenie\obj\Debug\Sravnenie.pdb
+C:\Users\Vadim\Desktop\Новая папка (2)\Sravnenie\bin\Debug\Sravnenie.exe
+C:\Users\Vadim\Desktop\Новая папка (2)\Sravnenie\bin\Debug\Sravnenie.pdb
+C:\Users\Vadim\Desktop\Новая папка (2)\Sravnenie\bin\Debug\Lab1.exe
+C:\Users\Vadim\Desktop\Новая папка (2)\Sravnenie\bin\Debug\Lab1.pdb
+C:\Users\Vadim\Desktop\Новая папка (2)\Sravnenie\obj\Debug\Sravnenie.csprojResolveAssemblyReference.cache
+C:\Users\Vadim\Desktop\Новая папка (2)\Sravnenie\obj\Debug\Sravnenie.Form1.resources
+C:\Users\Vadim\Desktop\Новая папка (2)\Sravnenie\obj\Debug\Sravnenie.Properties.Resources.resources
+C:\Users\Vadim\Desktop\Новая папка (2)\Sravnenie\obj\Debug\Sravnenie.csproj.GenerateResource.Cache
