@@ -22,11 +22,41 @@ namespace UnitTest
         }
 
         [TestMethod]
+        public void Method1_Null_Test()
+        {
+            // данные
+            string s1 = "";
+            string s2 = "";
+
+            // действие
+            Methods.Method1 m = new Methods.Method1(s1, s2);
+            double rez = m.Func();
+
+            // сравнение
+            Assert.AreEqual(1, rez);
+        }
+
+        [TestMethod]
         public void Method2_Test()
         {
             // данные
             string s1 = "MacDonalds";
             string s2 = "mcdonalds";
+
+            // действие
+            Methods.Method2 m = new Methods.Method2(s1, s2);
+            bool rez = m.Func();
+
+            // сравнение
+            Assert.AreEqual(true, rez);
+        }
+
+        [TestMethod]
+        public void Method2_Null_Test()
+        {
+            // данные
+            string s1 = "";
+            string s2 = "";
 
             // действие
             Methods.Method2 m = new Methods.Method2(s1, s2);
@@ -49,6 +79,21 @@ namespace UnitTest
 
             // сравнение
             Assert.AreEqual(0.045, Math.Round(rez, 3));
+        }
+
+        [TestMethod]
+        public void Method3_Null_Test()
+        {
+            // данные
+            string s1 = "";
+            string s2 = "";
+
+            // действие
+            Methods.Method3 m = new Methods.Method3(s1, s2);
+            double rez = m.Func();
+
+            // сравнение
+            Assert.AreEqual(0, Math.Round(rez, 3));
         }
     }
 }
