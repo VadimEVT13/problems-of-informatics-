@@ -80,30 +80,43 @@ namespace Methods
             int j = tab[0].Count() - 1;
             while (i != 0 & j != 0)
             {
-                if (tab[i][j - 1] < tab[i - 1][j - 1])
+                if (tab[i - 1][j - 1] < tab[i][j - 1])
                 {
-                    if (tab[i][j - 1] < tab[i - 1][j])
+                    if (tab[i - 1][j - 1] < tab[i - 1][j])
                     {
-                        rez += 0.5;
-                        j--;
+                        // замена
+                        if (tab[i][j] == tab[i - 1][j - 1])
+                        {
+                            i--;
+                            j--;
+                        }
+                        else
+                        {
+                            i--;
+                            j--;
+                            rez += 1;
+                        }
                     }
                     else
                     {
-                        rez += 1;
+                        // удаление
                         i--;
+                        rez += 0.4;
                     }
                 }
                 else
                 {
-                    if (tab[i - 1][j] < tab[i - 1][j - 1])
+                    if (tab[i][j - 1] < tab[i - 1][j])
                     {
-                        rez += 1;
-                        i--;
+                        // вставка
+                        j--;
+                        rez += 0.6;
                     }
                     else
                     {
+                        // удаление
                         i--;
-                        j--;
+                        rez += 0.4;
                     }
                 }
             }
