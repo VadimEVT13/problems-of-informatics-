@@ -24,6 +24,11 @@ namespace Methods
         {
             str1 = Str1.ToUpper();
             str2 = Str2.ToUpper();
+
+            while (str1.Count() < 4)
+                str1 += " ";
+            while (str2.Count() < 4)
+                str2 += " ";
         }
 
         public bool Func()

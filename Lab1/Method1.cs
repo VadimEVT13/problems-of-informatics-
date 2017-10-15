@@ -28,6 +28,9 @@ namespace Methods
             double a = x.Count() - 2;
             double b = y.Count() - 2;
 
+            if (a == 0 & b == 0)
+                return 1;
+
             int m = 0;
 
             for (int i = 0; i < a; i++)
