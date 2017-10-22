@@ -14,7 +14,7 @@ namespace UnitTest
             string s2 = "mcdonalds";
 
             // действие
-            Methods.Method1 m = new Methods.Method1(s1, s2);
+            Methods.Jaro m = new Methods.Jaro(s1, s2);
             double rez = m.Func();
 
             // сравнение
@@ -29,7 +29,7 @@ namespace UnitTest
             string s2 = "";
 
             // действие
-            Methods.Method1 m = new Methods.Method1(s1, s2);
+            Methods.Jaro m = new Methods.Jaro(s1, s2);
             double rez = m.Func();
 
             // сравнение
@@ -44,7 +44,7 @@ namespace UnitTest
             string s2 = "mcdonalds";
 
             // действие
-            Methods.Method2 m = new Methods.Method2(s1, s2);
+            Methods.JaroVincler m = new Methods.JaroVincler(s1, s2);
             bool rez = m.Func();
 
             // сравнение
@@ -59,7 +59,7 @@ namespace UnitTest
             string s2 = "";
 
             // действие
-            Methods.Method2 m = new Methods.Method2(s1, s2);
+            Methods.JaroVincler m = new Methods.JaroVincler(s1, s2);
             bool rez = m.Func();
 
             // сравнение
@@ -74,7 +74,7 @@ namespace UnitTest
             string s2 = "mcdonalds";
 
             // действие
-            Methods.Method3 m = new Methods.Method3(s1, s2);
+            Methods.Levenstein m = new Methods.Levenstein(s1, s2);
             double rez = m.Func();
 
             // сравнение
@@ -89,7 +89,7 @@ namespace UnitTest
             string s2 = "";
 
             // действие
-            Methods.Method3 m = new Methods.Method3(s1, s2);
+            Methods.Levenstein m = new Methods.Levenstein(s1, s2);
             double rez = m.Func();
 
             // сравнение
