@@ -19,26 +19,23 @@ namespace Lab1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Jaro_button_Click(object sender, EventArgs e)
         {
-            Method1 m = new Method1(textBox1.Text, textBox2.Text);
-            textBox3.Text = "Формула: s = 2 * m / ( a + b )" + Environment.NewLine + "Результат s = " + m.Func().ToString();
+            Jaro m = new Jaro();
+            JaroRez.Text = m.Func(JaroText1.Text, JaroText2.Text).ToString();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void JaroVincler_button_Click(object sender, EventArgs e)
         {
-            Method2 m = new Method2(textBox4.Text, textBox5.Text);
-            if(m.Func())
-                textBox6.Text = "Результат: совпадают";
-            else
-                textBox6.Text = "Результат: не совпадают";
+            JaroVincler m = new JaroVincler();
+            JaroVinclerRez.Text = m.Func(JaroVinclerText1.Text, textBJaroVinclerText2.Text).ToString();
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Levenstein_button_Click(object sender, EventArgs e)
         {
-            Method3 m = new Method3(textBox7.Text, textBox8.Text);
-            textBox9.Text = "Результат " + m.Func();
+            Levenstein m = new Levenstein();
+            LevensteinRez.Text = m.Func(LevensteinText1.Text, LevensteinText2.Text).ToString();
         }
     }
 }

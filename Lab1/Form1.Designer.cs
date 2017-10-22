@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.JaroText1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.JaroText2 = new System.Windows.Forms.TextBox();
+            this.Jaro_button = new System.Windows.Forms.Button();
+            this.JaroRez = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.JaroVinclerRez = new System.Windows.Forms.TextBox();
+            this.JaroVincler_button = new System.Windows.Forms.Button();
+            this.JaroVinclerText1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBJaroVinclerText2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.LevensteinRez = new System.Windows.Forms.TextBox();
+            this.Levenstein_button = new System.Windows.Forms.Button();
+            this.LevensteinText1 = new System.Windows.Forms.TextBox();
+            this.LevensteinText2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -59,10 +59,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(249, 26);
-            this.textBox1.TabIndex = 0;
+            this.JaroText1.Location = new System.Drawing.Point(9, 34);
+            this.JaroText1.Name = "textBox1";
+            this.JaroText1.Size = new System.Drawing.Size(249, 26);
+            this.JaroText1.TabIndex = 0;
             // 
             // label1
             // 
@@ -91,29 +91,29 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(9, 86);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(249, 26);
-            this.textBox2.TabIndex = 3;
+            this.JaroText2.Location = new System.Drawing.Point(9, 86);
+            this.JaroText2.Name = "textBox2";
+            this.JaroText2.Size = new System.Drawing.Size(249, 26);
+            this.JaroText2.TabIndex = 3;
             // 
-            // button1
+            // Jaro_button
             // 
-            this.button1.Location = new System.Drawing.Point(264, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 78);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Вычислить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Jaro_button.Location = new System.Drawing.Point(264, 34);
+            this.Jaro_button.Name = "Jaro_button";
+            this.Jaro_button.Size = new System.Drawing.Size(148, 78);
+            this.Jaro_button.TabIndex = 4;
+            this.Jaro_button.Text = "Вычислить";
+            this.Jaro_button.UseVisualStyleBackColor = true;
+            this.Jaro_button.Click += new System.EventHandler(this.Jaro_button_Click);
             // 
-            // textBox3
+            // JaroRez
             // 
-            this.textBox3.Location = new System.Drawing.Point(418, 34);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(181, 78);
-            this.textBox3.TabIndex = 5;
+            this.JaroRez.Location = new System.Drawing.Point(418, 34);
+            this.JaroRez.Multiline = true;
+            this.JaroRez.Name = "JaroRez";
+            this.JaroRez.ReadOnly = true;
+            this.JaroRez.Size = new System.Drawing.Size(181, 78);
+            this.JaroRez.TabIndex = 5;
             // 
             // tabControl1
             // 
@@ -128,61 +128,61 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.Jaro_button);
+            this.tabPage1.Controls.Add(this.JaroRez);
+            this.tabPage1.Controls.Add(this.JaroText1);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.JaroText2);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(617, 140);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Триграмма";
+            this.tabPage1.Text = "Jaro";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.textBox6);
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.textBox4);
+            this.tabPage2.Controls.Add(this.JaroVinclerRez);
+            this.tabPage2.Controls.Add(this.JaroVincler_button);
+            this.tabPage2.Controls.Add(this.JaroVinclerText1);
             this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.textBox5);
+            this.tabPage2.Controls.Add(this.textBJaroVinclerText2);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(617, 140);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Саундекс";
+            this.tabPage2.Text = "JaroVincler";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(418, 36);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(181, 78);
-            this.textBox6.TabIndex = 9;
+            this.JaroVinclerRez.Location = new System.Drawing.Point(418, 36);
+            this.JaroVinclerRez.Multiline = true;
+            this.JaroVinclerRez.Name = "textBox6";
+            this.JaroVinclerRez.ReadOnly = true;
+            this.JaroVinclerRez.Size = new System.Drawing.Size(181, 78);
+            this.JaroVinclerRez.TabIndex = 9;
             // 
-            // button2
+            // JaroVincler_button
             // 
-            this.button2.Location = new System.Drawing.Point(265, 36);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 78);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Выполнить";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.JaroVincler_button.Location = new System.Drawing.Point(265, 36);
+            this.JaroVincler_button.Name = "JaroVincler_button";
+            this.JaroVincler_button.Size = new System.Drawing.Size(147, 78);
+            this.JaroVincler_button.TabIndex = 8;
+            this.JaroVincler_button.Text = "Выполнить";
+            this.JaroVincler_button.UseVisualStyleBackColor = true;
+            this.JaroVincler_button.Click += new System.EventHandler(this.JaroVincler_button_Click);
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(10, 36);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(249, 26);
-            this.textBox4.TabIndex = 4;
+            this.JaroVinclerText1.Location = new System.Drawing.Point(10, 36);
+            this.JaroVinclerText1.Name = "textBox4";
+            this.JaroVinclerText1.Size = new System.Drawing.Size(249, 26);
+            this.JaroVinclerText1.TabIndex = 4;
             // 
             // label4
             // 
@@ -195,10 +195,10 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(10, 88);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(249, 26);
-            this.textBox5.TabIndex = 7;
+            this.textBJaroVinclerText2.Location = new System.Drawing.Point(10, 88);
+            this.textBJaroVinclerText2.Name = "textBox5";
+            this.textBJaroVinclerText2.Size = new System.Drawing.Size(249, 26);
+            this.textBJaroVinclerText2.TabIndex = 7;
             // 
             // label5
             // 
@@ -211,10 +211,10 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.textBox9);
-            this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Controls.Add(this.textBox7);
-            this.tabPage3.Controls.Add(this.textBox8);
+            this.tabPage3.Controls.Add(this.LevensteinRez);
+            this.tabPage3.Controls.Add(this.Levenstein_button);
+            this.tabPage3.Controls.Add(this.LevensteinText1);
+            this.tabPage3.Controls.Add(this.LevensteinText2);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
@@ -222,31 +222,41 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(617, 140);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Левенштейн";
+            this.tabPage3.Text = "Levenstein";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // textBox9
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 20);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Строка 1";
+            this.LevensteinRez.Location = new System.Drawing.Point(418, 36);
+            this.LevensteinRez.Multiline = true;
+            this.LevensteinRez.Name = "textBox9";
+            this.LevensteinRez.ReadOnly = true;
+            this.LevensteinRez.Size = new System.Drawing.Size(181, 78);
+            this.LevensteinRez.TabIndex = 12;
+            // 
+            // Levenstein_button
+            // 
+            this.Levenstein_button.Location = new System.Drawing.Point(265, 36);
+            this.Levenstein_button.Name = "Levenstein_button";
+            this.Levenstein_button.Size = new System.Drawing.Size(147, 78);
+            this.Levenstein_button.TabIndex = 11;
+            this.Levenstein_button.Text = "Выполнить";
+            this.Levenstein_button.UseVisualStyleBackColor = true;
+            this.Levenstein_button.Click += new System.EventHandler(this.Levenstein_button_Click);
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(10, 36);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(249, 26);
-            this.textBox7.TabIndex = 8;
+            this.LevensteinText1.Location = new System.Drawing.Point(10, 36);
+            this.LevensteinText1.Name = "textBox7";
+            this.LevensteinText1.Size = new System.Drawing.Size(249, 26);
+            this.LevensteinText1.TabIndex = 8;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(10, 88);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(249, 26);
-            this.textBox8.TabIndex = 10;
+            this.LevensteinText2.Location = new System.Drawing.Point(10, 88);
+            this.LevensteinText2.Name = "textBox8";
+            this.LevensteinText2.Size = new System.Drawing.Size(249, 26);
+            this.LevensteinText2.TabIndex = 10;
             // 
             // label7
             // 
@@ -257,24 +267,14 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Строка 2";
             // 
-            // textBox9
+            // label6
             // 
-            this.textBox9.Location = new System.Drawing.Point(418, 36);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(181, 78);
-            this.textBox9.TabIndex = 12;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(265, 36);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 78);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Выполнить";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(15, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 20);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Строка 1";
             // 
             // Form1
             // 
@@ -298,27 +298,27 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox JaroText1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox JaroText2;
+        private System.Windows.Forms.Button Jaro_button;
+        private System.Windows.Forms.TextBox JaroRez;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox JaroVinclerRez;
+        private System.Windows.Forms.Button JaroVincler_button;
+        private System.Windows.Forms.TextBox JaroVinclerText1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBJaroVinclerText2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox LevensteinRez;
+        private System.Windows.Forms.Button Levenstein_button;
+        private System.Windows.Forms.TextBox LevensteinText1;
+        private System.Windows.Forms.TextBox LevensteinText2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
     }

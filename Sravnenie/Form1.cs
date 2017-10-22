@@ -24,9 +24,9 @@ namespace Sravnenie
         private void button1_Click(object sender, EventArgs e)
         {
             Existing_Method ex_m = new Existing_Method();
-            Method1 m1;
-            Method2 m2;
-            Method3 m3;
+            Jaro m1;
+            JaroVincler m2;
+            Levenstein m3;
 
             Stopwatch t = new Stopwatch();
             double[] rez_mas = new double[20];
@@ -55,7 +55,7 @@ namespace Sravnenie
                 foreach (string s in mass)
                 {
                     string[] str = s.Split(' ');
-                    m1 = new Method1(str[0], str[1]);
+                    m1 = new Jaro(str[0], str[1]);
                     System.IO.File.AppendAllText("m1.txt", (m1.Func() * 100).ToString() + Environment.NewLine);
                 }
                 t.Stop();
@@ -70,7 +70,7 @@ namespace Sravnenie
                 foreach (string s in mass)
                 {
                     string[] str = s.Split(' ');
-                    m2 = new Method2(str[0], str[1]);
+                    m2 = new JaroVincler(str[0], str[1]);
                     if (m2.Func())
                         System.IO.File.AppendAllText("m2.txt", "100" + Environment.NewLine);
                     else
@@ -87,7 +87,7 @@ namespace Sravnenie
                 foreach (string s in mass)
                 {
                     string[] str = s.Split(' ');
-                    m3 = new Method3(str[0], str[1]);
+                    m3 = new Levenstein(str[0], str[1]);
                     System.IO.File.AppendAllText("m3.txt", (100 - m3.Func() * 100).ToString() + Environment.NewLine);
                 }
                 t.Stop();
