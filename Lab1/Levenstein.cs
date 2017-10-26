@@ -18,56 +18,21 @@ namespace Methods
             str1 = " " + Str1.ToUpper();
             str2 = " " + Str2.ToUpper();
 
+            if (str1.Count() == 0 | str2.Count() == 0)
+                return 0;
+
             double[][] tab = table();
-
-            double rez = 0;
-
+            
             int i = tab.Count() - 1;
             int j = tab[0].Count() - 1;
-            while (i != 0 & j != 0)
-            {
-                if (tab[i - 1][j - 1] < tab[i][j - 1])
-                {
-                    if (tab[i - 1][j - 1] < tab[i - 1][j])
-                    {
-                        // замена
-                        if (tab[i][j] == tab[i - 1][j - 1])
-                        {
-                            i--;
-                            j--;
-                        }
-                        else
-                        {
-                            i--;
-                            j--;
-                            rez++;
-                        }
-                    }
-                    else
-                    {
-                        // удаление
-                        i--;
-                        rez++;
-                    }
-                }
-                else
-                {
-                    if (tab[i][j - 1] < tab[i - 1][j])
-                    {
-                        // вставка
-                        j--;
-                        rez++;
-                    }
-                    else
-                    {
-                        // удаление
-                        i--;
-                        rez++;
-                    }
-                }
-            }
-
-            return rez;
+            
+            if (str1.Count() <= 1 & str2.Count() <= 1)
+                return 0;
+            if(str1.Count() >= str2.Count())
+                return 1.0 - (double)tab[i][j]/ (str1.Count() - 1);
+            else
+                return 1.0 - (double)tab[i][j] / (str2.Count() - 1);
+            
         }
 
         private double[][] table()
@@ -119,7 +84,7 @@ namespace Methods
                     }
                 }
             }
-
+            
             return d;
         }
     }
