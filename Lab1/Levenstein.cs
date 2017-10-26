@@ -67,7 +67,15 @@ namespace Methods
                 }
             }
 
-            return rez;
+            if (str1.Count() == 0 | str2.Count() == 0)
+                return 0;
+            else
+            {
+                if(str1.Count() >= str2.Count())
+                    return 1.0 - (double)rez / str1.Count();
+                else
+                    return 1.0 - (double)rez / str2.Count();
+            }
         }
 
         private double[][] table()
@@ -119,7 +127,7 @@ namespace Methods
                     }
                 }
             }
-
+            
             return d;
         }
     }
