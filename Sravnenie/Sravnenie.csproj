@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SimMetrics">
+      <HintPath>lib\SimMetrics.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExJaro.cs" />
+    <Compile Include="ExJaroWincler.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

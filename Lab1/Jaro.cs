@@ -31,25 +31,25 @@ namespace Methods
                 }
             }
 
-            double dist = 0;
+            int dist = 0;
             if (str1.Count() >= str2.Count())
-                dist = str1.Count() / 2.0 - 1;
+                dist = str1.Count() / 2 - 1;
             else
-                dist = str2.Count() / 2.0 - 1;
+                dist = str2.Count() / 2 - 1;
 
             double m = 0;
-            double t = 0;
+            int t = 0;
 
             for (int i = 0; i < str1.Count() & i < str2.Count(); i++)
             {
-                for (int k = i - (int)dist; k <= i + (int)dist; k++)
+                for (int k = i - dist; k <= i + dist; k++)
                 {
                     if (k >= 0 & k < str2.Count())
                     {
                         if (matrix[k][i] == 1)
                         {
                             m++;
-                            if (k == i)
+                            if (k != i)
                                 t++;
                         }
                     }
@@ -60,7 +60,7 @@ namespace Methods
             if (m == 0)
                 return 0;
             else
-                return 1 / 3.0 * (m / str1.Count() + m / str2.Count() + (m - t) / m);
-        }        
+                return 1 - 1 / 3.0 * (m / str1.Count() + m / str2.Count() + (m - t) / m);
+        }
     }
 }

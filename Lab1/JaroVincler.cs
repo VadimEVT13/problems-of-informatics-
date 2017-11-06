@@ -9,7 +9,7 @@ namespace Methods
     public class JaroVincler
     {
         string str1;
-        string str2;        
+        string str2;
 
         public JaroVincler() { }
 
@@ -20,10 +20,12 @@ namespace Methods
             double p = 0.1; // по стандарту
             double l = 0;
 
-            for (int i = 0; i < str1.Count() & i < str2.Count() & i < 4; i++)
+            for (int i = 0; i < str1.Count() & i < str2.Count(); i++)
             {
                 if (str1[i] == str2[i])
                     l++;
+                else
+                    break;
             }
 
             // первая строка по вертикали
@@ -42,14 +44,14 @@ namespace Methods
                 }
             }
 
-            double dist = 0;
+            int dist = 0;
             if (str1.Count() >= str2.Count())
-                dist = str1.Count() / 2.0 - 1;
+                dist = str1.Count() / 2 - 1;
             else
-                dist = str2.Count() / 2.0 - 1;
+                dist = str2.Count() / 2 - 1;
 
             double m = 0;
-            double t = 0;
+            int t = 0;
 
             for (int i = 0; i < str1.Count() & i < str2.Count(); i++)
             {
@@ -60,7 +62,7 @@ namespace Methods
                         if (matrix[k][i] == 1)
                         {
                             m++;
-                            if (k == i)
+                            if (k != i)
                                 t++;
                         }
                     }
@@ -75,9 +77,9 @@ namespace Methods
                 d = 1 / 3.0 * (m / str1.Count() + m / str2.Count() + (m - t) / m);
 
             if (d < 0.7)
-                return d;
+                return 1 - d;
             else
-                return d + l * p * (1 - d);
+                return 1 - (d + l * p * (1 - d));
         }
     }
 }
