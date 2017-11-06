@@ -12,3 +12,6 @@ C:\Users\Vadim\Desktop\Konosuba\problems-of-informatics--master\Sravnenie\obj\De
 C:\Users\Vadim\Desktop\Konosuba\problems-of-informatics--master\Sravnenie\obj\Debug\Sravnenie.csproj.GenerateResource.Cache
 C:\Users\Vadim\Desktop\Konosuba\problems-of-informatics--master\Sravnenie\obj\Debug\Sravnenie.exe
 C:\Users\Vadim\Desktop\Konosuba\problems-of-informatics--master\Sravnenie\obj\Debug\Sravnenie.pdb
+C:\Users\Vadim\Desktop\problems-of-informatics--dev\Sravnenie\bin\Debug\Sravnenie.exe.config
+C:\Users\Vadim\Desktop\problems-of-informatics--dev\Sravnenie\obj\Debug\Sravnenie.exe
+C:\Users\Vadim\Desktop\problems-of-informatics--dev\Sravnenie\obj\Debug\Sravnenie.pdb
