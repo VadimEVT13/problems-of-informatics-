@@ -6,22 +6,17 @@ using System.Threading.Tasks;
 
 namespace Methods
 {
-    public class Levenstein
+    public static class Levenstein
     {
-        string str1 = "";
-        string str2 = "";
-
-        public Levenstein() { }
-
-        public double Func(string Str1, string Str2)
+        public static double Func(string Str1, string Str2)
         {
-            str1 = " " + Str1.ToUpper();
-            str2 = " " + Str2.ToUpper();
+            string str1 = " " + Str1.ToUpper();
+            string str2 = " " + Str2.ToUpper();
 
             if (str1.Count() == 0 | str2.Count() == 0)
                 return 0;
 
-            double[][] tab = table();
+            double[][] tab = table(str1, str2);
             
             int i = tab.Count() - 1;
             int j = tab[0].Count() - 1;
@@ -35,7 +30,7 @@ namespace Methods
             
         }
 
-        private double[][] table()
+        private static double[][] table(string str1, string str2)
         {
             //условимся, строка - 1, столбец - 2
             double[][] d = new double[str2.Count()][];

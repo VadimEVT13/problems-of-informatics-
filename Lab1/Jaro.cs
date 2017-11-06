@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Methods
 {
-    public class Jaro
+    public static class Jaro
     {
-        public Jaro() { }
-
-        public double Func(string Str1, string Str2)
+        public static double Func(string Str1, string Str2)
         {
             string str1 = Str1.ToLower();
             string str2 = Str2.ToLower();
