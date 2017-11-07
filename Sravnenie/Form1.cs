@@ -50,37 +50,37 @@ namespace Sravnenie
 
                     Stopwatch t = new Stopwatch();
                     t.Start();
-                    double rj1 = Jaro.Func(str[0], str[1]);
-                    string tj1 = t.Elapsed.ToString();
+                    double rj1 = Math.Round(Jaro.Func(str[0], str[1]), 2);
+                    string tj1 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
 
                     t = new Stopwatch();
                     t.Start();                                  
-                    double rj2 = ExJaro.distance(str[0], str[1]);
-                    string tj2 = t.Elapsed.ToString();
-                                
+                    double rj2 = Math.Round(ExJaro.distance(str[0], str[1]), 2);
+                    string tj2 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
+
                     // -----
 
                     t = new Stopwatch();
                     t.Start();
-                    double rjv1 = JaroVincler.Func(str[0], str[1]);
-                    string tjv1 = t.Elapsed.ToString();
+                    double rjv1 = Math.Round(JaroVincler.Func(str[0], str[1]), 2);
+                    string tjv1 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
 
                     t = new Stopwatch();
                     t.Start();
-                    double rjv2 = ExJaroWincler.distance(str[0], str[1]);
-                    string tjv2 = t.Elapsed.ToString();
-                                        
+                    double rjv2 = Math.Round(ExJaroWincler.distance(str[0], str[1]), 2);
+                    string tjv2 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
+
                     // ----
 
                     t = new Stopwatch();
                     t.Start();
-                    double rl1 = Levenstein.Func(str[0], str[1]);
-                    string tl1 = t.Elapsed.ToString();
+                    double rl1 = Math.Round(Levenstein.Func(str[0], str[1]), 2);
+                    string tl1 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
 
                     t = new Stopwatch();
                     t.Start();
-                    double rl2 = ex_l.GetSimilarity(str[0], str[1]);
-                    string tl2 = t.Elapsed.ToString();
+                    double rl2 = Math.Round(ex_l.GetSimilarity(str[0], str[1]), 2);
+                    string tl2 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
                                         
                     rezlist.Add(new string[14] { rj1.ToString(), tj1, rj2.ToString(), tj2,
                         rjv1.ToString(), tjv1, rjv2.ToString(), tjv2,
@@ -125,7 +125,7 @@ namespace Sravnenie
                 for (int i = 0; i < lines.Count(); i++)
                 {
                     foreach (string word in data[i])
-                        lines[i] += word + " ";
+                        lines[i] += word + "\r\n";
                 }
 
                 File.WriteAllLines(filename, lines);
