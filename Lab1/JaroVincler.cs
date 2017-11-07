@@ -50,15 +50,17 @@ namespace Methods
 
             for (int i = 0; i < str1.Count() & i < str2.Count(); i++)
             {
+                bool flag = false;
                 for (int k = i - (int)dist; k <= i + (int)dist; k++)
                 {
-                    if (k >= 0 & k < str2.Count())
+                    if (k >= 0 & k < str1.Count() & !flag)
                     {
                         if (matrix[k][i] == 1)
                         {
                             m++;
                             if (k != i)
                                 t++;
+                            flag = true;
                         }
                     }
                 }
