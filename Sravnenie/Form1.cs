@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using Methods;
 using System.Diagnostics;
+using System.IO;
 
 namespace Sravnenie
 {
@@ -23,29 +24,15 @@ namespace Sravnenie
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SimMetricsMetricUtilities.Levenstein ex_l = new SimMetricsMetricUtilities.Levenstein();
-            
-            Stopwatch t = new Stopwatch();
-            /*
-                t.Start();
-                t.Elapsed.ToString();
+            string pathdata = @"..\..\data\data.txt";
+            string pathrez = @"..\..\data\rez.txt";
 
-            */
-
-            string s1 = "Vadim";
-            string s2 = "Vidam";
-
-            double rezj1 = Jaro.Func(s1, s2);
-            double rezj3 = ExJaro.distance(s1, s2);
-
-
-            double rezjv1 = JaroVincler.Func(s1, s2);
-            double rezjv3 = ExJaroWincler.distance(s1, s2);
-
-            double rezl1 = Levenstein.Func(s1, s2);
-            double rezl2 = ex_l.GetSimilarity(s1, s2);
+            string[][] data = readFile(pathdata);
+            List<string[]> rez = Sravn(data);
+            writeFile(pathrez, rez);
         }
 
+        // сравнение
         private List<string[]> Sravn(string[][] data)
         {
             List<string[]> rezlist = new List<string[]>();
@@ -59,7 +46,7 @@ namespace Sravnenie
                 {
                     string[] mass;
 
-                    SimMetricsMetricUtilities.Levenstein ex_l = new SimMetricsMetricUtilities.Levenstein();\
+                    SimMetricsMetricUtilities.Levenstein ex_l = new SimMetricsMetricUtilities.Levenstein();
 
                     Stopwatch t = new Stopwatch();
                     t.Start();
@@ -95,15 +82,55 @@ namespace Sravnenie
                     double rl2 = ex_l.GetSimilarity(str[0], str[1]);
                     string tl2 = t.Elapsed.ToString();
                                         
-                    rezlist.Add(new string[12] { rj1.ToString(), tj1, rj2.ToString(), tj2,
+                    rezlist.Add(new string[14] { rj1.ToString(), tj1, rj2.ToString(), tj2,
                         rjv1.ToString(), tjv1, rjv2.ToString(), tjv2,
-                        rl1.ToString(), tl1, rl2.ToString(), tl2});
+                        rl1.ToString(), tl1, rl2.ToString(), tl2, str[0], str[1]});
                 }
             }
 
             return rezlist;
         }
 
+        // получение данных
+        private string[][] readFile(string filename)
+        {
+            Stack<string[]> words = new Stack<string[]>();
+            string[][] rez;
 
+            // считывание строк и запись в стек
+            filename = filename.Split(' ')[0];
+            try
+            {
+                foreach (string line in File.ReadLines(filename))
+                    words.Push(line.Split(' '));
+
+                rez = new string[words.Count][];
+                for (int i = words.Count - 1; i >= 0; i--)
+                    rez[i] = words.Pop();
+            }
+            catch (Exception ex) { return null; }
+
+            return rez;
+        }
+
+        // запись данных
+        private void writeFile(string filename, List<string[]> data)
+        {
+            string[] lines = new string[data.Count()];
+
+            // считывание строк и запись в стек
+            filename = filename.Split(' ')[0];
+            try
+            {
+                for (int i = 0; i < lines.Count(); i++)
+                {
+                    foreach (string word in data[i])
+                        lines[i] += word + " ";
+                }
+
+                File.WriteAllLines(filename, lines);
+            }
+            catch (Exception ex) { };
+        }
     }
 }
