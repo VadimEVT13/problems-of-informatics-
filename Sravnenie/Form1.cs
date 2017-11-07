@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using Methods;
 using System.Diagnostics;
+using System.IO;
 
 namespace Sravnenie
 {
@@ -23,147 +24,113 @@ namespace Sravnenie
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Existing_Method ex_m = new Existing_Method();
-            Jaro m1;
-            JaroVincler m2;
-            Levenstein m3;
+            string pathdata = @"..\..\data\data.txt";
+            string pathrez = @"..\..\data\rez.txt";
 
-            Stopwatch t = new Stopwatch();
-            double[] rez_mas = new double[20];
-
-            if (System.IO.File.Exists("data.txt"))
-            {
-                string[] mass = System.IO.File.ReadAllLines("data.txt");
-                System.IO.File.WriteAllText("ex_m.txt", "");
-
-                // Существующий тест
-                t.Start();
-                foreach (string s in mass)
-                {
-                    string[] str = s.Split(' ');
-                    System.IO.File.AppendAllText("ex_m.txt", ex_m.IndistinctMatching(4, str[0], str[1]).ToString() + Environment.NewLine);
-                }
-                t.Stop();
-                System.IO.File.AppendAllText("ex_m.txt", t.Elapsed.ToString());
-
-
-                System.IO.File.WriteAllText("m1.txt", "");
-
-                // Метод 1
-                t = new Stopwatch();
-                t.Start();
-                foreach (string s in mass)
-                {
-                    string[] str = s.Split(' ');
-                    m1 = new Jaro(str[0], str[1]);
-                    System.IO.File.AppendAllText("m1.txt", (m1.Func() * 100).ToString() + Environment.NewLine);
-                }
-                t.Stop();
-                System.IO.File.AppendAllText("m1.txt", t.Elapsed.ToString());
-
-
-                System.IO.File.WriteAllText("m2.txt", "");
-
-                // Метод 2
-                t = new Stopwatch();
-                t.Start();
-                foreach (string s in mass)
-                {
-                    string[] str = s.Split(' ');
-                    m2 = new JaroVincler(str[0], str[1]);
-                    if (m2.Func())
-                        System.IO.File.AppendAllText("m2.txt", "100" + Environment.NewLine);
-                    else
-                        System.IO.File.AppendAllText("m2.txt", "0" + Environment.NewLine);
-                }
-                t.Stop();
-                System.IO.File.AppendAllText("m2.txt", t.Elapsed.ToString());
-
-                // Метод 3
-                System.IO.File.WriteAllText("m3.txt", "");
-
-                t = new Stopwatch();
-                t.Start();
-                foreach (string s in mass)
-                {
-                    string[] str = s.Split(' ');
-                    m3 = new Levenstein(str[0], str[1]);
-                    System.IO.File.AppendAllText("m3.txt", (100 - m3.Func() * 100).ToString() + Environment.NewLine);
-                }
-                t.Stop();
-                System.IO.File.AppendAllText("m3.txt", t.Elapsed.ToString());
-
-                MessageBox.Show("Выполнено");
-            }
-        }
-    }
-
-    // Класс реализован на VBA, конвертирован в Delpfi и конвертирован в C#
-    // Древняя реализация 
-
-    class Existing_Method
-    {   
-        //------------------------------------------------------------------------------
-        //MaxMatching - максимальная длина подстроки (достаточно 3-4)
-        //strInputMatching - сравниваемая строка
-        //strInputStandart - строка-образец
-        // Сравнивание без учета регистра
-        // if IndistinctMatching(4, "поисковая строка", "оригинальная строка  - эталон") > 40 then ...
-        struct RetCount
-        {
-            public long lngSubRows;
-            public long lngCountLike;
+            string[][] data = readFile(pathdata);
+            List<string[]> rez = Sravn(data);
+            writeFile(pathrez, rez);
         }
 
-        RetCount Matching(string strInputA, string strInputB, int lngLen)
+        // сравнение
+        private List<string[]> Sravn(string[][] data)
         {
-            RetCount TempRet;
-            int PosStrA;
-            int PosStrB;
-            string strTempA;
-            string strTempB;
-            TempRet.lngCountLike = 0;
-            TempRet.lngSubRows = 0;
-            for (PosStrA = 0; PosStrA <= strInputA.Length - lngLen; PosStrA++)
+            List<string[]> rezlist = new List<string[]>();
+
+            foreach (string[] str in data)
             {
-                strTempA = strInputA.Substring(PosStrA, lngLen);
-                for (PosStrB = 0; PosStrB <= strInputB.Length - lngLen; PosStrB++)
+                // количество слов в строке
+                if (str.Count() != 2)
+                    continue;
+                else
                 {
-                    strTempB = strInputB.Substring(PosStrB, lngLen);
-                    if ((string.Compare(strTempA, strTempB) == 0))
-                    {
-                        TempRet.lngCountLike = (TempRet.lngCountLike + 1);
-                        break;
-                    }
+                    string[] mass;
+
+                    SimMetricsMetricUtilities.Levenstein ex_l = new SimMetricsMetricUtilities.Levenstein();
+
+                    Stopwatch t = new Stopwatch();
+                    t.Start();
+                    double rj1 = Math.Round(Jaro.Func(str[0], str[1]), 2);
+                    string tj1 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
+
+                    t = new Stopwatch();
+                    t.Start();                                  
+                    double rj2 = Math.Round(ExJaro.distance(str[0], str[1]), 2);
+                    string tj2 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
+
+                    // -----
+
+                    t = new Stopwatch();
+                    t.Start();
+                    double rjv1 = Math.Round(JaroVincler.Func(str[0], str[1]), 2);
+                    string tjv1 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
+
+                    t = new Stopwatch();
+                    t.Start();
+                    double rjv2 = Math.Round(ExJaroWincler.distance(str[0], str[1]), 2);
+                    string tjv2 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
+
+                    // ----
+
+                    t = new Stopwatch();
+                    t.Start();
+                    double rl1 = Math.Round(Levenstein.Func(str[0], str[1]), 2);
+                    string tl1 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
+
+                    t = new Stopwatch();
+                    t.Start();
+                    double rl2 = Math.Round(ex_l.GetSimilarity(str[0], str[1]), 2);
+                    string tl2 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
+                                        
+                    rezlist.Add(new string[14] { rj1.ToString(), tj1, rj2.ToString(), tj2,
+                        rjv1.ToString(), tjv1, rjv2.ToString(), tjv2,
+                        rl1.ToString(), tl1, rl2.ToString(), tl2, str[0], str[1]});
                 }
-                TempRet.lngSubRows = (TempRet.lngSubRows + 1);
             }
-            return TempRet;
+
+            return rezlist;
         }
 
-        public float IndistinctMatching(int MaxMatching, string strInputMatching, string strInputStandart)
+        // получение данных
+        private string[][] readFile(string filename)
         {
-            RetCount gret;
-            RetCount tret;
-            int lngCurLen; //текущая длина подстроки
-            //если не передан какой-либо параметр, то выход
-            if (MaxMatching == 0 || strInputMatching.Length == 0 || strInputStandart.Length == 0) return 0;
-            gret.lngCountLike = 0;
-            gret.lngSubRows = 0;
-            // Цикл прохода по длине сравниваемой фразы
-            for (lngCurLen = 1; lngCurLen <= MaxMatching; lngCurLen++)
+            Stack<string[]> words = new Stack<string[]>();
+            string[][] rez;
+
+            // считывание строк и запись в стек
+            filename = filename.Split(' ')[0];
+            try
             {
-                //Сравниваем строку A со строкой B
-                tret = Matching(strInputMatching, strInputStandart, lngCurLen);
-                gret.lngCountLike = gret.lngCountLike + tret.lngCountLike;
-                gret.lngSubRows = gret.lngSubRows + tret.lngSubRows;
-                //Сравниваем строку B со строкой A
-                tret = Matching(strInputStandart, strInputMatching, lngCurLen);
-                gret.lngCountLike = gret.lngCountLike + tret.lngCountLike;
-                gret.lngSubRows = gret.lngSubRows + tret.lngSubRows;
+                foreach (string line in File.ReadLines(filename))
+                    words.Push(line.Split(' '));
+
+                rez = new string[words.Count][];
+                for (int i = words.Count - 1; i >= 0; i--)
+                    rez[i] = words.Pop();
             }
-            if (gret.lngSubRows == 0) return 0;
-            return (float)(gret.lngCountLike * 100.0 / gret.lngSubRows);
+            catch (Exception ex) { return null; }
+
+            return rez;
+        }
+
+        // запись данных
+        private void writeFile(string filename, List<string[]> data)
+        {
+            string[] lines = new string[data.Count()];
+
+            // считывание строк и запись в стек
+            filename = filename.Split(' ')[0];
+            try
+            {
+                for (int i = 0; i < lines.Count(); i++)
+                {
+                    foreach (string word in data[i])
+                        lines[i] += word + "\r\n";
+                }
+
+                File.WriteAllLines(filename, lines);
+            }
+            catch (Exception ex) { };
         }
     }
 }

@@ -21,21 +21,18 @@ namespace Lab1
 
         private void Jaro_button_Click(object sender, EventArgs e)
         {
-            Jaro m = new Jaro();
-            JaroRez.Text = m.Func(JaroText1.Text, JaroText2.Text).ToString();
+            JaroRez.Text = Jaro.Func(JaroText1.Text, JaroText2.Text).ToString();
         }
 
         private void JaroVincler_button_Click(object sender, EventArgs e)
         {
-            JaroVincler m = new JaroVincler();
-            JaroVinclerRez.Text = m.Func(JaroVinclerText1.Text, textBJaroVinclerText2.Text).ToString();
+            JaroVinclerRez.Text = JaroVincler.Func(JaroVinclerText1.Text, textBJaroVinclerText2.Text).ToString();
 
         }
 
         private void Levenstein_button_Click(object sender, EventArgs e)
         {
-            Levenstein m = new Levenstein();
-            LevensteinRez.Text = m.Func(LevensteinText1.Text, LevensteinText2.Text).ToString();
+            LevensteinRez.Text = Levenstein.Func(LevensteinText1.Text, LevensteinText2.Text).ToString();
         }
     }
 }

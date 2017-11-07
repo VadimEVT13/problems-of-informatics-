@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Methods
 {
-    public class Jaro
+    public static class Jaro
     {
-        public Jaro() { }
-
-        public double Func(string Str1, string Str2)
+        public static double Func(string Str1, string Str2)
         {
             string str1 = Str1.ToLower();
             string str2 = Str2.ToLower();
@@ -42,23 +40,26 @@ namespace Methods
 
             for (int i = 0; i < str1.Count() & i < str2.Count(); i++)
             {
+                bool flag = false;
                 for (int k = i - dist; k <= i + dist; k++)
                 {
-                    if (k >= 0 & k < str2.Count())
+                    if (k >= 0 & k < str1.Count() & !flag)
                     {
                         if (matrix[k][i] == 1)
                         {
                             m++;
                             if (k != i)
                                 t++;
+                            flag = true;
                         }
+                        
                     }
                 }
             }
             t = t / 2;
 
             if (m == 0)
-                return 0;
+                return 1;
             else
                 return 1 - 1 / 3.0 * (m / str1.Count() + m / str2.Count() + (m - t) / m);
         }
