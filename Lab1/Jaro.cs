@@ -59,7 +59,7 @@ namespace Methods
             t = t / 2;
 
             if (m == 0)
-                return 0;
+                return 1;
             else
                 return 1 - 1 / 3.0 * (m / str1.Count() + m / str2.Count() + (m - t) / m);
         }
