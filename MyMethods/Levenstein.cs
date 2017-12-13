@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;   
+using System.Threading.Tasks;
 
 namespace Methods
 {
@@ -17,24 +17,24 @@ namespace Methods
                 return 0;
 
             double[][] tab = table(str1, str2);
-            
+
             int i = tab.Count() - 1;
             int j = tab[0].Count() - 1;
-            
+
             if (str1.Count() <= 1 & str2.Count() <= 1)
                 return 0;
-            if(str1.Count() >= str2.Count())
-                return 1.0 - (double)tab[i][j]/ (str1.Count() - 1);
+            if (str1.Count() >= str2.Count())
+                return 1.0 - (double)tab[i][j] / (str1.Count() - 1);
             else
                 return 1.0 - (double)tab[i][j] / (str2.Count() - 1);
-            
+
         }
 
         private static double[][] table(string str1, string str2)
         {
             //условимся, строка - 1, столбец - 2
             double[][] d = new double[str2.Count()][];
-            for(int i = 0; i < str2.Count(); i++)
+            for (int i = 0; i < str2.Count(); i++)
                 d[i] = new double[str1.Count()];
 
             for (int i = 0; i < str1.Count(); i++)
@@ -55,9 +55,9 @@ namespace Methods
                         d[i][j] = d[i - 1][j - 1];
                     else
                     {
-                        double left = d[i][j-1];
-                        double left_top = d[i-1][j-1];
-                        double top = d[i-1][j];
+                        double left = d[i][j - 1];
+                        double left_top = d[i - 1][j - 1];
+                        double top = d[i - 1][j];
 
                         double min = 0;
                         if (left <= left_top)
@@ -79,7 +79,7 @@ namespace Methods
                     }
                 }
             }
-            
+
             return d;
         }
     }

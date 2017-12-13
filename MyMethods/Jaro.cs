@@ -16,7 +16,7 @@ namespace Methods
             double[][] matrix = new double[str1.Count()][];
             for (int i = 0; i < str1.Count(); i++)
                 matrix[i] = new double[str2.Count()];
-           
+
             int dist = 0;
             if (str1.Count() >= str2.Count())
                 dist = str1.Count() / 2 - 1;

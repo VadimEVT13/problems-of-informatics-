@@ -6,17 +6,28 @@ using System.Threading.Tasks;
 
 namespace Methods
 {
-    public static class Jaro
+    public static class JaroVincler
     {
         public static double Func(string Str1, string Str2)
         {
             string str1 = Str1;
             string str2 = Str2;
+            double p = 0.1; // по стандарту
+            double l = 0;
+
+            for (int i = 0; i < str1.Count() & i < str2.Count(); i++)
+            {
+                if (str1[i] == str2[i])
+                    l++;
+                else
+                    break;
+            }
+
             // первая строка по вертикали
             double[][] matrix = new double[str1.Count()][];
             for (int i = 0; i < str1.Count(); i++)
                 matrix[i] = new double[str2.Count()];
-           
+
             int dist = 0;
             if (str1.Count() >= str2.Count())
                 dist = str1.Count() / 2 - 1;
@@ -77,12 +88,17 @@ namespace Methods
                     t++;
             }
 
+            double d = 0;
             t = t / 2;
 
-            if (m == 0)
-                return 0;
+            // 0.7 порог винклера
+            if (m != 0)
+                d = 1 / 3.0 * (m / str1.Count() + m / str2.Count() + (m - t) / m);
+
+            if (d < 0.7)
+                return d;
             else
-                return 1 / 3.0 * (m / str1.Count() + m / str2.Count() + (m - t) / m);
+                return d + l * p * (1 - d);
         }
     }
 }

@@ -1,28 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 using Methods;
 using System.Diagnostics;
 using System.IO;
 
-namespace Sravnenie
+namespace ConsoleApplication1
 {
-    public partial class Form1 : Form
+    class Program
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
+        static void Main(string[] args)
         {
             string pathdata = @"..\..\data\data.txt";
             string pathrez = @"..\..\data\rez.txt";
@@ -30,10 +20,13 @@ namespace Sravnenie
             string[][] data = readFile(pathdata);
             List<string[]> rez = Sravn(data);
             writeFile(pathrez, rez);
+
+            Console.WriteLine("Выполенно");
+            Console.ReadKey();
         }
 
         // сравнение
-        private List<string[]> Sravn(string[][] data)
+        private static List<string[]> Sravn(string[][] data)
         {
             List<string[]> rezlist = new List<string[]>();
 
@@ -58,7 +51,7 @@ namespace Sravnenie
                     string tj1 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
 
                     t = new Stopwatch();
-                    t.Start();                                  
+                    t.Start();
                     double rj2 = Math.Round(ex_j.GetSimilarity(str[0], str[1]), 2);
                     string tj2 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
 
@@ -85,7 +78,7 @@ namespace Sravnenie
                     t.Start();
                     double rl2 = Math.Round(ex_l.GetSimilarity(str[0], str[1]), 2);
                     string tl2 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
-                                        
+
                     rezlist.Add(new string[14] { rj1.ToString(), tj1, rj2.ToString(), tj2,
                         rjv1.ToString(), tjv1, rjv2.ToString(), tjv2,
                         rl1.ToString(), tl1, rl2.ToString(), tl2, str[0], str[1]});
@@ -96,7 +89,7 @@ namespace Sravnenie
         }
 
         // получение данных
-        private string[][] readFile(string filename)
+        private static string[][] readFile(string filename)
         {
             Stack<string[]> words = new Stack<string[]>();
             string[][] rez;
@@ -118,7 +111,7 @@ namespace Sravnenie
         }
 
         // запись данных
-        private void writeFile(string filename, List<string[]> data)
+        private static void writeFile(string filename, List<string[]> data)
         {
             string[] lines = new string[data.Count()];
 

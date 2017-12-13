@@ -10,8 +10,8 @@ namespace Methods
     {
         public static double Func(string Str1, string Str2)
         {
-            string str1 = " " + Str1;
-            string str2 = " " + Str2;
+            string str1 = " " + Str1.ToUpper();
+            string str2 = " " + Str2.ToUpper();
 
             if (str1.Count() == 0 | str2.Count() == 0)
                 return 0;

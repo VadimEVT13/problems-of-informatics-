@@ -1,28 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
+using Sravnenie;
 using Methods;
 using System.Diagnostics;
 using System.IO;
 
-namespace Sravnenie
+namespace Sravn
 {
-    public partial class Form1 : Form
+    class Program
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
+        static void Main(string[] args)
         {
             string pathdata = @"..\..\data\data.txt";
             string pathrez = @"..\..\data\rez.txt";
@@ -30,10 +21,17 @@ namespace Sravnenie
             string[][] data = readFile(pathdata);
             List<string[]> rez = Sravn(data);
             writeFile(pathrez, rez);
+
+            writeFile(@"..\..\data\rezJ.txt", rez, 'j');
+            writeFile(@"..\..\data\rezW.txt", rez, 'w');
+            writeFile(@"..\..\data\rezL.txt", rez, 'l');
+
+            Console.WriteLine("Выполнено");
+            Console.ReadLine();
         }
 
         // сравнение
-        private List<string[]> Sravn(string[][] data)
+        private static List<string[]> Sravn(string[][] data)
         {
             List<string[]> rezlist = new List<string[]>();
 
@@ -44,13 +42,13 @@ namespace Sravnenie
                     continue;
                 else
                 {
-                    str[0] = str[0].ToUpper();
-                    str[1] = str[1].ToUpper();
+                    // перевод в лоу
+                    str[0] = str[0].ToLower();
+                    str[1] = str[1].ToLower();
+
                     string[] mass;
 
                     SimMetricsMetricUtilities.Levenstein ex_l = new SimMetricsMetricUtilities.Levenstein();
-                    SimMetricsMetricUtilities.Jaro ex_j = new SimMetricsMetricUtilities.Jaro();
-                    SimMetricsMetricUtilities.JaroWinkler ex_jw = new SimMetricsMetricUtilities.JaroWinkler();
 
                     Stopwatch t = new Stopwatch();
                     t.Start();
@@ -58,8 +56,8 @@ namespace Sravnenie
                     string tj1 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
 
                     t = new Stopwatch();
-                    t.Start();                                  
-                    double rj2 = Math.Round(ex_j.GetSimilarity(str[0], str[1]), 2);
+                    t.Start();
+                    double rj2 = Math.Round(ExJaro.distance(str[0], str[1]), 2);
                     string tj2 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
 
                     // -----
@@ -71,7 +69,7 @@ namespace Sravnenie
 
                     t = new Stopwatch();
                     t.Start();
-                    double rjv2 = Math.Round(ex_jw.GetSimilarity(str[0], str[1]), 2);
+                    double rjv2 = Math.Round(ExJaroWincler.distance(str[0], str[1]), 2);
                     string tjv2 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
 
                     // ----
@@ -85,7 +83,7 @@ namespace Sravnenie
                     t.Start();
                     double rl2 = Math.Round(ex_l.GetSimilarity(str[0], str[1]), 2);
                     string tl2 = Math.Round(t.Elapsed.TotalMilliseconds, 2).ToString();
-                                        
+
                     rezlist.Add(new string[14] { rj1.ToString(), tj1, rj2.ToString(), tj2,
                         rjv1.ToString(), tjv1, rjv2.ToString(), tjv2,
                         rl1.ToString(), tl1, rl2.ToString(), tl2, str[0], str[1]});
@@ -94,9 +92,9 @@ namespace Sravnenie
 
             return rezlist;
         }
-
+                
         // получение данных
-        private string[][] readFile(string filename)
+        private static string[][] readFile(string filename)
         {
             Stack<string[]> words = new Stack<string[]>();
             string[][] rez;
@@ -118,7 +116,7 @@ namespace Sravnenie
         }
 
         // запись данных
-        private void writeFile(string filename, List<string[]> data)
+        private static void writeFile(string filename, List<string[]> data)
         {
             string[] lines = new string[data.Count()];
 
@@ -129,13 +127,37 @@ namespace Sravnenie
                 for (int i = 0; i < lines.Count(); i++)
                 {
                     foreach (string word in data[i])
-                        lines[i] += word + " ";
-                    lines[i] += "\n";
+                        lines[i] += word + "\r\n";
                 }
 
                 File.WriteAllLines(filename, lines);
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { };
+        }
+
+        // запись данных конкретного метода
+        private static void writeFile(string filename, List<string[]> data, char flag)
+        {
+            filename = filename.Split(' ')[0];
+            string[] lines = new string[data.Count()];
+
+            switch (flag)
+            {
+                case 'j':
+                    for (int i = 0; i < lines.Count(); i++)
+                        lines[i] += data[i][0] + ' ' + data[i][1] + ' ' + data[i][2] + ' ' + data[i][3] + ' ';
+                    break;
+                case 'w':
+                    for (int i = 0; i < lines.Count(); i++)
+                        lines[i] += data[i][4] + ' ' + data[i][5] + ' ' + data[i][6] + ' ' + data[i][7] + ' ';
+                    break;
+                case 'l':
+                    for (int i = 0; i < lines.Count(); i++)
+                        lines[i] += data[i][8] + ' ' + data[i][9] + ' ' + data[i][10] + ' ' + data[i][11] + ' ' ;
+                    break;
+            }
+
+            File.WriteAllLines(filename, lines);
         }
     }
 }
